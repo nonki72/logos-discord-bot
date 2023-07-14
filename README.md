@@ -28,7 +28,7 @@ export OPENAI_API_KEY=<openai_key>
 to run:
 ```
 source ../logos env.sh
-source ../logos env.sh
+source ../logos envai.sh
 node app.js
 ngrok http 3000
 ```
