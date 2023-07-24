@@ -44,7 +44,7 @@ import { Client, Events, GatewayIntentBits, WebhookClient} from 'discord.js';
 // Create an express app
 const app = express();
 // Get port, or default to 3000
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.DISCORD_BOT_PORT || 7777;
 // Parse request body and verifies incoming requests using discord-interactions package
 app.use(express.json({ verify: VerifyDiscordRequest(process.env.PUBLIC_KEY) }));
 
