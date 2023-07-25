@@ -9,7 +9,7 @@ import {
 } from 'discord-interactions';
 import { VerifyDiscordRequest, getRandomEmoji, DiscordRequest } from './utils.js';
 import { getShuffledOptions, getResult } from './game.js';
-import * as generate from './generate.js';
+import { generateChatResponse } from './generate.js';
 import { setTimeout } from 'timers/promises';
 import { Client, Events, GatewayIntentBits, WebhookClient} from 'discord.js';
 
@@ -108,7 +108,7 @@ app.post('/interactions', async function (req, res) {
 
 
         
-        const generated = await generate.generateChatResponse();
+        const generated = await generateChatResponse();
 
         // Send a message into the channel where command was triggered from
         // const talkMessage = {
