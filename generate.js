@@ -60,7 +60,7 @@ export async function generateChatResponse() {
     });
 
 
-    var chatResponse = generatedSentence + " :: " + response.data.choices[0].text;
+    var chatResponse = generatedSentence + " :: " + response.data.choices[0].message.content;
     console.log("generated chat response: " + chatResponse);
 
     console.log(JSON.stringify(response.data.choices));
