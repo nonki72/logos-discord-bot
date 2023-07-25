@@ -9,7 +9,7 @@ import {
 } from 'discord-interactions';
 import { VerifyDiscordRequest, getRandomEmoji, DiscordRequest } from './utils.js';
 import { getShuffledOptions, getResult } from './game.js';
-import * as generate from './generate.cjs';
+import * as generate from './generate.js';
 import { setTimeout } from 'timers/promises';
 import { Client, Events, GatewayIntentBits, WebhookClient} from 'discord.js';
 
@@ -44,7 +44,7 @@ import { Client, Events, GatewayIntentBits, WebhookClient} from 'discord.js';
 // Create an express app
 const app = express();
 // Get port, or default to 3000
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.DISCORD_BOT_PORT || 7777;
 // Parse request body and verifies incoming requests using discord-interactions package
 app.use(express.json({ verify: VerifyDiscordRequest(process.env.PUBLIC_KEY) }));
 
@@ -108,7 +108,7 @@ app.post('/interactions', async function (req, res) {
 
 
         
-        const generated = await generate.generateTweet();
+        const generated = await generate.generateChatResponse();
 
         // Send a message into the channel where command was triggered from
         // const talkMessage = {

@@ -1,6 +1,40 @@
-# Getting Started app for Discord
+# Logos AI discord bot
 
-This project contains a basic rock-paper-scissors-style Discord app written in JavaScript, built for the [getting started guide](https://discord.com/developers/docs/getting-started).
+requrires a checked out logos project in the same parent directory (../logos)
+with env.sh and envai.sh files:
+
+env.sh:
+```
+#!/bin/bash
+
+          export MYSQL_USER="<username>"
+
+          export MYSQL_PASSWORD="<password>"
+
+          export MYSQL_DATABASE="logos"
+
+          export MYSQL_HOST="<host_ip>"
+
+          export MYSQL_PORT="<host_port>"
+```
+
+envai.sh:
+```
+#!/bin/bash
+
+export OPENAI_API_KEY=<openai_key>
+```
+
+to run:
+```
+source ../logos env.sh
+source ../logos envai.sh
+node app.js
+ngrok http 3000
+```
+
+
+This project contains a basic Discord app written in JavaScript, built for the [getting started guide](https://discord.com/developers/docs/getting-started).
 
 ![Demo of app](/assets/getting-started-demo.gif?raw=true)
 
