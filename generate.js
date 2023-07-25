@@ -1,9 +1,10 @@
-const DataLib = require('./src/datalib.cjs');
-const FunctionParser = require('./src/functionparser.cjs');
-const Grammar = require('./src/grammar.cjs');
-const  {TwitterApi} =  require('twitter-api-v2');
-const twitterConfig = require('./keys/twitter.json');
-const { Configuration, OpenAIApi } = require("openai");
+
+import * as DataLib from './src/datalib.cjs';
+import * as FunctionParser from './src/functionparser.cjs';
+import * as Grammar from './src/grammar.cjs';
+import { Configuration, OpenAIApi } from "openai";
+
+
 
 function sleep(ms) {
     return new Promise((resolve) => {
@@ -68,4 +69,4 @@ const storedTweetFunction = FunctionParser.loadStoredFunction(tweetFreeIdentifie
 
 }
 
-exports.generateChatResponse = generateChatResponse;
+export default generateChatResponse;

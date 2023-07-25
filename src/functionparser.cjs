@@ -1,10 +1,9 @@
 'use strict';
 const async = require("async");
-const DataLib = require('./datalib');
-const F = require('./function');
+const DataLib = require('./datalib.cjs');
+const F = require('./function.cjs');
 const Q = require('q');
-const Diary = require('./diary');
-const AST = require('./ast');
+const AST = require('./ast.cjs');
 
 
 

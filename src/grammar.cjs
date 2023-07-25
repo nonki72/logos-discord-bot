@@ -7,13 +7,12 @@ const determinersFilePath = resolve('../logos-ai/text/determiners.txt');
 const pronounsFilePath = resolve('../logos-ai/text/pronouns.txt');
 const prepositionsFilePath = resolve('../logos-ai/text/prepositions.txt');
 const complementizersFilePath = resolve('../logos-ai/text/complementizers.txt');
-const DataLib = require('./datalib');
+const DataLib = require('./datalib.cjs');
 
 var Promise = require("bluebird");
 const fs = require('fs');
 const yaml = require('js-yaml');
 const {reject} = require("async/index");
-const {basic} = require("needle/lib/auth");
 const grammarTree = loadYamlFileTree(grammarFilePath);
 const basicDictionary= loadYamlFileTree(basicFilePath);
 const phrasesDictionary= loadYamlFileTree(phrasesFilePath);
