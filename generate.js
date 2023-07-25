@@ -12,26 +12,26 @@ function sleep(ms) {
     });
 }
 
-async function generateChatResponse() {
-    // get tweet code from database (not hard coded i/o here, rely on sensei)
-    async function getFreeIdentifierByName (name) {
-        return new Promise((resolve, reject) => {
-            DataLib.readFreeIdentifierByName(name, (freeIdentifier) => {
-                if (freeIdentifier == null) {
-                    return reject("couldn't retrieve "+name+" from database");
-                }
-                return resolve(freeIdentifier);
-            });
-        });
-    }
+export async function generateChatResponse() {
+//     // get tweet code from database (not hard coded i/o here, rely on sensei)
+//     async function getFreeIdentifierByName (name) {
+//         return new Promise((resolve, reject) => {
+//             DataLib.readFreeIdentifierByName(name, (freeIdentifier) => {
+//                 if (freeIdentifier == null) {
+//                     return reject("couldn't retrieve "+name+" from database");
+//                 }
+//                 return resolve(freeIdentifier);
+//             });
+//         });
+//     }
 
-    // use above code to read from database and convert to DAO objects
-    const tweetFreeIdentifier = await getFreeIdentifierByName("twitterTweet")
-        .catch((reason) => {console.error(reason); return null;});
-    if (tweetFreeIdentifier == null) {
-        return setTimeout(interact, 0);
-    }
-const storedTweetFunction = FunctionParser.loadStoredFunction(tweetFreeIdentifier);
+//     // use above code to read from database and convert to DAO objects
+//     const tweetFreeIdentifier = await getFreeIdentifierByName("twitterTweet")
+//         .catch((reason) => {console.error(reason); return null;});
+//     if (tweetFreeIdentifier == null) {
+//         return setTimeout(interact, 0);
+//     }
+// const storedTweetFunction = FunctionParser.loadStoredFunction(tweetFreeIdentifier);
 
     const generatedSentenceTree = await Grammar.generateSentence();
     const generatedSentence = Grammar.treeToString(generatedSentenceTree);
@@ -68,5 +68,3 @@ const storedTweetFunction = FunctionParser.loadStoredFunction(tweetFreeIdentifie
     return chatResponse;
 
 }
-
-export default generateChatResponse;
