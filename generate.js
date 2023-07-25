@@ -1,8 +1,8 @@
-const DataLib = require('../logos-ai/src/datalib');
-const FunctionParser = require('../logos-ai/src/functionparser.js');
-const Grammar = require('../logos-ai/src/grammar');
+const DataLib = require('./src/datalib.cjs');
+const FunctionParser = require('./src/functionparser.cjs');
+const Grammar = require('./src/grammar.cjs');
 const  {TwitterApi} =  require('twitter-api-v2');
-const twitterConfig = require('../logos-ai/keys/twitter.json');
+const twitterConfig = require('./keys/twitter.json');
 const { Configuration, OpenAIApi } = require("openai");
 
 function sleep(ms) {
